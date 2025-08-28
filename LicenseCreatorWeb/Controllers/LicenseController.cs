@@ -1,4 +1,5 @@
-﻿using LicenseCreatorWeb.Model;
+﻿using LicenseCreatorLib;
+using LicenseCreatorWeb.Model;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -31,34 +32,13 @@ namespace LicenseCreatorWeb.Controllers
         [HttpPost]
         public async Task<ActionResult<LicenseData>> CreateLicense(LicenseData license)
         {
-            
+            license.Id = 0;
             license.CreatedAt = DateTime.UtcNow;
             m_databaseContext.Licenses.Add(license);
             await m_databaseContext.SaveChangesAsync();
 
-            return CreatedAtAction("GetLicense", new { id = license.id }, license);
+            return CreatedAtAction("GetLicense", new { id = license.Id }, license);
         }
 
-       
-
-
-
-
-
-        //[HttpPost]
-        //public async Task<ActionResult<LicenseData>> UpdateLicense(LicenseData license)
-        //{
-        //    return CreatedAtAction("GetLicense", new { id = license.id }, license);
-        //}
-        //[HttpPost]
-        //public async Task<ActionResult> Login(string username, string password)
-        //{
-        //    return AcceptedAtAction("Logout");
-        //}
-        //[HttpPost]
-        //public async Task<ActionResult> Logout()
-        //{
-        //    return AcceptedAtAction("Logout");
-        //}
     }
 }

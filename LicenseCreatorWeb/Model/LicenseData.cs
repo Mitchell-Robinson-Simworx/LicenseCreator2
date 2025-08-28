@@ -8,7 +8,7 @@ namespace LicenseCreatorWeb.Model
     public class LicenseData
     {
         [Key]
-        public uint id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string HardwareKey { get; set; }
@@ -16,9 +16,6 @@ namespace LicenseCreatorWeb.Model
         public LicenseType LicenseType { get; set; }
         public LicenseSecurityType LicenseSecurityType { get; set; }
         public DateTime CreatedAt { get; set; }
-        
-
-        
 
         public LicenseData From(License license)
         {
