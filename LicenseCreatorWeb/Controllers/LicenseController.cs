@@ -17,7 +17,7 @@ namespace LicenseCreatorWeb.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<LicenseData>> GetLicense(int id)
+        public async Task<ActionResult<LicenseData>> Get(int id)
         {
             var license = await m_databaseContext.Licenses.FindAsync(id);
 
@@ -30,7 +30,7 @@ namespace LicenseCreatorWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<LicenseData>> CreateLicense(LicenseData license)
+        public async Task<ActionResult<LicenseData>> Create(LicenseData license)
         {
             license.Id = 0;
             license.CreatedAt = DateTime.UtcNow;

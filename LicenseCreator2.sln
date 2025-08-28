@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LicenseCreatorCLI", "Licens
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LicenseCreatorWeb", "LicenseCreatorWeb\LicenseCreatorWeb.csproj", "{00ECA6F0-EBD2-45BA-8150-5BB8776FDB28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenseCreatorLib", "LicenseCreatorLib\LicenseCreatorLib.csproj", "{D74EDB39-ED96-4FC5-AFB3-5C73F4F81608}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LicenseCreatorLib", "LicenseCreatorLib\LicenseCreatorLib.csproj", "{D74EDB39-ED96-4FC5-AFB3-5C73F4F81608}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenseCreatorWebLib", "LicenseCreatorWebLib\LicenseCreatorWebLib.csproj", "{9CFEE447-EA3A-40D9-B073-8DC18E289C2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{D74EDB39-ED96-4FC5-AFB3-5C73F4F81608}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D74EDB39-ED96-4FC5-AFB3-5C73F4F81608}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D74EDB39-ED96-4FC5-AFB3-5C73F4F81608}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CFEE447-EA3A-40D9-B073-8DC18E289C2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CFEE447-EA3A-40D9-B073-8DC18E289C2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CFEE447-EA3A-40D9-B073-8DC18E289C2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CFEE447-EA3A-40D9-B073-8DC18E289C2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
