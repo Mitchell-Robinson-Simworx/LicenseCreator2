@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using LicenseCreatorLib;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace LicenseCreatorLib
 {
-    public class License(string name, string email, string hardwareKey, string passPhrase, DateTime expiry, string privateKey, string outputPath, LicenseType licenseType, LicenseSecurityType licenseSecurityType)
+    public class License
     {
         const string DATE_TIME_FORMAT = "dd/MM/yyyy HH:mm";
-        public string Name { get; set; } = name;
-        public string Email { get; set; } = email;
-        public string HardwareKey { get; set; } = hardwareKey;
-        public string PassPhrase { get; set; } = passPhrase;
-        public DateTime Expiry { get; set; } = expiry;
-        public string PrivateKey { get; set; } = privateKey;
-        public string OutputPath { get; set; } = outputPath;
-        public LicenseType LicenseType { get; set; } = licenseType;
-        public LicenseSecurityType LicenseSecurityType { get; set; } = licenseSecurityType;
+
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string HardwareKey { get; set; }
+        public string PassPhrase { get; set; }
+        public DateTime Expiry { get; set; }
+        public string PrivateKey { get; set; }
+        public string OutputPath { get; set; }
+        public LicenseType LicenseType { get; set; }
+        public LicenseSecurityType LicenseSecurityType { get; set; }
 
         public bool ToFile()
         {
@@ -25,13 +23,13 @@ namespace LicenseCreatorLib
 
             Expiry = DateTime.ParseExact(Expiry.ToString(), DATE_TIME_FORMAT, null).ToLocalTime();
 
-            Portable.Licensing.License license = Portable.Licensing.License.New()
+            var license = Portable.Licensing.License.New()
                   .WithUniqueIdentifier(Guid.NewGuid())
                   .WithAdditionalAttributes(new Dictionary<string, string>()
                   {
-                        { "HardwareId", HardwareKey },
-                        { "SecurityType", LicenseSecurityType.ToString() },
-                        { "Type", LicenseType.ToString() },
+                    { "HardwareId", HardwareKey },
+                    { "SecurityType", LicenseSecurityType.ToString() },
+                    { "Type", LicenseType.ToString() },
                   })
                   .ExpiresAt(LicenseType == LicenseType.Standard || LicenseType == LicenseType.Perpetual ? DateTime.MaxValue : Expiry)
                   .LicensedTo(Name, Email)
@@ -48,7 +46,6 @@ namespace LicenseCreatorLib
                 {
                     return false;
                 }
-
             }
             else
             {

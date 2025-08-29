@@ -2,9 +2,16 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LicenseCreatorDesktop\LicenseCreatorDesktop.csproj" />
+    <ProjectReference Include="..\LicenseCreatorLib\LicenseCreatorLib.csproj" />
+    <ProjectReference Include="..\LicenseCreatorWebLib\LicenseCreatorWebLib.csproj" />
+    <ProjectReference Include="..\LicenseCreatorWeb\LicenseCreatorWeb.csproj" />
+  </ItemGroup>
 
 </Project>

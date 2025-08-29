@@ -1,7 +1,10 @@
 ﻿using LicenseCreatorLib;
 using LicenseCreatorWeb.Model;
+using LicenseCreatorWebLib;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+
 
 namespace LicenseCreatorWeb.Controllers
 {
@@ -30,14 +33,15 @@ namespace LicenseCreatorWeb.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<LicenseData>> Create(LicenseData license)
+        public async Task<ActionResult<LicenseData>> Create([FromBody] License license)
         {
-            license.Id = 0;
-            license.CreatedAt = DateTime.UtcNow;
-            m_databaseContext.Licenses.Add(license);
-            await m_databaseContext.SaveChangesAsync();
+            //License? license = JsonConvert.DeserializeObject<License>(json);
+            license?.ToFile();
 
-            return CreatedAtAction("GetLicense", new { id = license.Id }, license);
+           // await m_databaseContext.SaveChangesAsync();
+            return Ok(license);
+
+            //return CreatedAtAction("GetLicense", new { id = license.Id }, license);
         }
 
     }

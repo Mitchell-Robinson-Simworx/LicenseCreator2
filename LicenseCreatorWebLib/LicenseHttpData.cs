@@ -4,7 +4,6 @@ namespace LicenseCreatorWebLib
 {
     public class LicenseHttpData(string name, string email, string hardwareKey, string passPhrase, DateTime expiry, string privateKey, string outputPath, LicenseType licenseType, LicenseSecurityType licenseSecurityType)
     {
-        const string DATE_TIME_FORMAT = "dd/MM/yyyy HH:mm";
         public string Name { get; set; } = name;
         public string Email { get; set; } = email;
         public string HardwareKey { get; set; } = hardwareKey;
